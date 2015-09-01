@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>React-simple-countdown by LeonidasEsteban</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-light.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>React-simple-countdown</h1>
+        <p>A simple countdown component with React &lt;3</p>
+
+        <p class="view"><a href="https://github.com/LeonidasEsteban/react-simple-countdown">View the Project on GitHub <small>LeonidasEsteban/react-simple-countdown</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/LeonidasEsteban/react-simple-countdown/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/LeonidasEsteban/react-simple-countdown/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/LeonidasEsteban/react-simple-countdown">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a id="react-simple-countdown" class="anchor" href="#react-simple-countdown" aria-hidden="true"><span class="octicon octicon-link"></span></a>react-simple-countdown</h1>
+
+<p>A simple countdown component with React &lt;3</p>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>install</h2>
+
+<div class="highlight highlight-bash"><pre>npm install react-simple-countdown --save</pre></div>
+
+<h2>
+<a id="how-to-use" class="anchor" href="#how-to-use" aria-hidden="true"><span class="octicon octicon-link"></span></a>How to use</h2>
+
+<p>import component:</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">import</span> CountDown <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-simple-countdown<span class="pl-pds">'</span></span>;</pre></div>
+
+<h2>
+<a id="props" class="anchor" href="#props" aria-hidden="true"><span class="octicon octicon-link"></span></a>Props</h2>
+
+<h3>
+<a id="date" class="anchor" href="#date" aria-hidden="true"><span class="octicon octicon-link"></span></a>date</h3>
+
+<p>A string width valid date like isoformat or js dates</p>
+
+<h3>
+<a id="classname" class="anchor" href="#classname" aria-hidden="true"><span class="octicon octicon-link"></span></a>className</h3>
+
+<p>Custom component class</p>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">import</span> React <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react<span class="pl-pds">'</span></span>;
+<span class="pl-k">import</span> CountDown <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>react-simple-countdown<span class="pl-pds">'</span></span>;
+
+<span class="pl-k">const</span> <span class="pl-c1">MyComponent</span> <span class="pl-k">=</span> React.createClass({
+  <span class="pl-en">render</span>() {
+    <span class="pl-k">return</span>(<span class="pl-k">&lt;</span>CountDown date<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>2015-09-12T00:00:00+00:00<span class="pl-pds">"</span></span> className<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>CountDown<span class="pl-pds">"</span></span><span class="pl-k">/&gt;</span>);
+  }
+})
+React.render(<span class="pl-k">&lt;</span>MyComponent<span class="pl-k">/&gt;</span>, <span class="pl-c1">document</span>.<span class="pl-c1">body</span>);</pre></div>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/LeonidasEsteban">LeonidasEsteban</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-27590784-4");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
