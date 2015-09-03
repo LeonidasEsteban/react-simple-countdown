@@ -5,6 +5,10 @@ const CountDown = React.createClass({
   propTypes: {
     date: React.PropTypes.string,
     className: React.PropTypes.string,
+    days: React.PropTypes.string,
+    hours: React.PropTypes.string,
+    mins: React.PropTypes.string,
+    segs: React.PropTypes.string,
   },
   getInitialState() {
     return {
@@ -18,6 +22,10 @@ const CountDown = React.createClass({
     return {
       date: new Date(),
       className: 'CountDown',
+      days: 'Days',
+      hours: 'Hours',
+      mins: 'Min',
+      segs: 'Seg',
     };
   },
   componentDidMount() {
@@ -67,16 +75,16 @@ const CountDown = React.createClass({
     return (
       <div className={this.props.className}>
         <div className={`${this.props.className}-col is-day`}>
-          <p><strong>{this.leadingZeros(countDown.days)}</strong><span>Días</span></p>
+          <p><strong>{this.leadingZeros(countDown.days)}</strong><span>{this.props.days}</span></p>
         </div>
         <div className={`${this.props.className}-col is-hour`}>
-          <p><strong>{this.leadingZeros(countDown.hours)}</strong><span>Hor</span></p>
+          <p><strong>{this.leadingZeros(countDown.hours)}</strong><span>{this.props.hours}</span></p>
         </div>
         <div className={`${this.props.className}-col is-min`}>
-          <p><strong>{this.leadingZeros(countDown.min)}</strong><span>Min</span></p>
+          <p><strong>{this.leadingZeros(countDown.min)}</strong><span>{this.props.days}</span></p>
         </div>
         <div className={`${this.props.className}-col is-seg`}>
-          <p><strong>{this.leadingZeros(countDown.sec)}</strong><span>Seg</span></p>
+          <p><strong>{this.leadingZeros(countDown.sec)}</strong><span>{this.props.segs}</span></p>
         </div>
       </div>
     );

@@ -14,7 +14,11 @@ var CountDown = _react2['default'].createClass({
   displayName: 'Simple countDown',
   propTypes: {
     date: _react2['default'].PropTypes.string,
-    className: _react2['default'].PropTypes.string
+    className: _react2['default'].PropTypes.string,
+    days: _react2['default'].PropTypes.string,
+    hours: _react2['default'].PropTypes.string,
+    mins: _react2['default'].PropTypes.string,
+    segs: _react2['default'].PropTypes.string
   },
   getInitialState: function getInitialState() {
     return {
@@ -27,7 +31,11 @@ var CountDown = _react2['default'].createClass({
   getDefaultProps: function getDefaultProps() {
     return {
       date: new Date(),
-      className: 'CountDown'
+      className: 'CountDown',
+      days: 'Days',
+      hours: 'Hours',
+      mins: 'Min',
+      segs: 'Seg'
     };
   },
   componentDidMount: function componentDidMount() {
@@ -93,7 +101,7 @@ var CountDown = _react2['default'].createClass({
           _react2['default'].createElement(
             'span',
             null,
-            'Días'
+            this.props.days
           )
         )
       ),
@@ -111,7 +119,7 @@ var CountDown = _react2['default'].createClass({
           _react2['default'].createElement(
             'span',
             null,
-            'Hor'
+            this.props.hours
           )
         )
       ),
@@ -129,7 +137,7 @@ var CountDown = _react2['default'].createClass({
           _react2['default'].createElement(
             'span',
             null,
-            'Min'
+            this.props.days
           )
         )
       ),
@@ -147,7 +155,7 @@ var CountDown = _react2['default'].createClass({
           _react2['default'].createElement(
             'span',
             null,
-            'Seg'
+            this.props.segs
           )
         )
       )
