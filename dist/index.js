@@ -137,7 +137,7 @@ var CountDown = _react2['default'].createClass({
           _react2['default'].createElement(
             'span',
             null,
-            this.props.days
+            this.props.mins
           )
         )
       ),
