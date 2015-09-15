@@ -5,7 +5,7 @@ const CountDown = React.createClass({
   propTypes: {
     date: React.PropTypes.string,
     className: React.PropTypes.string,
-    days: React.PropTypes.string,
+    days: React.PropTypes.object,
     hours: React.PropTypes.string,
     mins: React.PropTypes.string,
     segs: React.PropTypes.string,

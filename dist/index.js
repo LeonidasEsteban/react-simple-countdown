@@ -15,7 +15,7 @@ var CountDown = _react2['default'].createClass({
   propTypes: {
     date: _react2['default'].PropTypes.string,
     className: _react2['default'].PropTypes.string,
-    days: _react2['default'].PropTypes.string,
+    days: _react2['default'].PropTypes.object,
     hours: _react2['default'].PropTypes.string,
     mins: _react2['default'].PropTypes.string,
     segs: _react2['default'].PropTypes.string
