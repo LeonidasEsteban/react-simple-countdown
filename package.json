@@ -1,6 +1,6 @@
 {
   "name": "react-simple-countdown",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple countdown component",
   "main": "dist/index.js",
   "scripts": {
