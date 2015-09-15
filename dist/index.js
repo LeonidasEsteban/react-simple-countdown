@@ -32,7 +32,10 @@ var CountDown = _react2['default'].createClass({
     return {
       date: new Date(),
       className: 'CountDown',
-      days: 'Days',
+      days: {
+        prural: 'Days',
+        singular: 'Day'
+      },
       hours: 'Hours',
       mins: 'Min',
       segs: 'Seg'
@@ -84,6 +87,12 @@ var CountDown = _react2['default'].createClass({
   },
   render: function render() {
     var countDown = this.state;
+    var days = undefined;
+    if (countDown.days === 1) {
+      days = this.props.days.singular;
+    } else {
+      days = this.props.days.prural;
+    }
     return _react2['default'].createElement(
       'div',
       { className: this.props.className },
@@ -101,7 +110,7 @@ var CountDown = _react2['default'].createClass({
           _react2['default'].createElement(
             'span',
             null,
-            this.props.days
+            days
           )
         )
       ),
