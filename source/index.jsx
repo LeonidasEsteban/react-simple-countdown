@@ -84,7 +84,7 @@ const CountDown = React.createClass({
     return (
       <div className={this.props.className}>
         <div className={`${this.props.className}-col is-day`}>
-          <p><strong>{this.leadingZeros(countDown.days)}</rstrong><span>{days}</span></p>
+          <p><strong>{this.leadingZeros(countDown.days)}</strong><span>{days}</span></p>
         </div>
         <div className={`${this.props.className}-col is-hour`}>
           <p><strong>{this.leadingZeros(countDown.hours)}</strong><span>{this.props.hours}</span></p>
