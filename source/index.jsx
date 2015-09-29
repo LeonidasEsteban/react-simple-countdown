@@ -23,7 +23,7 @@ const CountDown = React.createClass({
       date: new Date(),
       className: 'CountDown',
       days: {
-        prural: 'Days',
+        plural: 'Days',
         singular: 'Day',
       },
       hours: 'Hours',
@@ -79,12 +79,12 @@ const CountDown = React.createClass({
     if (countDown.days === 1) {
       days = this.props.days.singular;
     } else {
-      days = this.props.days.prural;
+      days = this.props.days.plural;
     }
     return (
       <div className={this.props.className}>
         <div className={`${this.props.className}-col is-day`}>
-          <p><strong>{this.leadingZeros(countDown.days)}</strong><span>{days}</span></p>
+          <p><strong>{this.leadingZeros(countDown.days)}</rstrong><span>{days}</span></p>
         </div>
         <div className={`${this.props.className}-col is-hour`}>
           <p><strong>{this.leadingZeros(countDown.hours)}</strong><span>{this.props.hours}</span></p>
