@@ -27,7 +27,7 @@ const CountDown = createClass({
       date: new Date(),
       className: 'CountDown',
       days: {
-        prural: 'Days',
+        plural: 'Days',
         singular: 'Day',
       },
       hours: 'Hours',
@@ -88,7 +88,7 @@ const CountDown = createClass({
     if (countDown.days === 1) {
       days = this.props.days.singular;
     } else {
-      days = this.props.days.prural;
+      days = this.props.days.plural;
     }
     return (
       <div className={this.props.className}>
