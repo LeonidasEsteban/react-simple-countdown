@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {
+  createClass,
+  PropTypes,
+} from 'react';
 
-const CountDown = React.createClass({
+const CountDown = createClass({
   displayName: 'Simple countDown',
   propTypes: {
-    date: React.PropTypes.string,
-    className: React.PropTypes.string,
-    days: React.PropTypes.object,
-    hours: React.PropTypes.string,
-    mins: React.PropTypes.string,
-    segs: React.PropTypes.string,
+    date: PropTypes.string,
+    className: PropTypes.string,
+    days: PropTypes.objectOf(PropTypes.string),
+    hours: PropTypes.string,
+    mins: PropTypes.string,
+    segs: PropTypes.string,
+    onEnd: PropTypes.func,
   },
   getInitialState() {
     return {
@@ -29,6 +33,7 @@ const CountDown = React.createClass({
       hours: 'Hours',
       mins: 'Min',
       segs: 'Seg',
+      onEnd: () => {},
     };
   },
   componentDidMount() {
@@ -43,9 +48,11 @@ const CountDown = React.createClass({
   },
   getDateData(endDate) {
     let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date)) / 1000;
+
     if (diff <= 0) {
       return false;
     }
+
     const timeLeft = {
       years: 0,
       days: 0,
@@ -54,6 +61,7 @@ const CountDown = React.createClass({
       sec: 0,
       millisec: 0,
     };
+
     if (diff >= (365.25 * 86400)) {
       timeLeft.years = Math.floor(diff / (365.25 * 86400));
       diff -= timeLeft.years * 365.25 * 86400;
@@ -71,6 +79,7 @@ const CountDown = React.createClass({
       diff -= timeLeft.min * 60;
     }
     timeLeft.sec = diff;
+
     return timeLeft;
   },
   render() {
@@ -100,6 +109,7 @@ const CountDown = React.createClass({
   },
   stop() {
     clearInterval(this.interval);
+    this.props.onEnd();
   },
   leadingZeros(num, length = null) {
     let length_ = length;

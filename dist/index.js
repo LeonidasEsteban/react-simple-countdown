@@ -10,15 +10,16 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var CountDown = _react2['default'].createClass({
+var CountDown = (0, _react.createClass)({
   displayName: 'Simple countDown',
   propTypes: {
-    date: _react2['default'].PropTypes.string,
-    className: _react2['default'].PropTypes.string,
-    days: _react2['default'].PropTypes.object,
-    hours: _react2['default'].PropTypes.string,
-    mins: _react2['default'].PropTypes.string,
-    segs: _react2['default'].PropTypes.string
+    date: _react.PropTypes.string,
+    className: _react.PropTypes.string,
+    days: _react.PropTypes.objectOf(_react.PropTypes.string),
+    hours: _react.PropTypes.string,
+    mins: _react.PropTypes.string,
+    segs: _react.PropTypes.string,
+    onEnd: _react.PropTypes.func
   },
   getInitialState: function getInitialState() {
     return {
@@ -38,7 +39,8 @@ var CountDown = _react2['default'].createClass({
       },
       hours: 'Hours',
       mins: 'Min',
-      segs: 'Seg'
+      segs: 'Seg',
+      onEnd: function onEnd() {}
     };
   },
   componentDidMount: function componentDidMount() {
@@ -55,9 +57,11 @@ var CountDown = _react2['default'].createClass({
   },
   getDateData: function getDateData(endDate) {
     var diff = (Date.parse(new Date(endDate)) - Date.parse(new Date())) / 1000;
+
     if (diff <= 0) {
       return false;
     }
+
     var timeLeft = {
       years: 0,
       days: 0,
@@ -66,6 +70,7 @@ var CountDown = _react2['default'].createClass({
       sec: 0,
       millisec: 0
     };
+
     if (diff >= 365.25 * 86400) {
       timeLeft.years = Math.floor(diff / (365.25 * 86400));
       diff -= timeLeft.years * 365.25 * 86400;
@@ -83,6 +88,7 @@ var CountDown = _react2['default'].createClass({
       diff -= timeLeft.min * 60;
     }
     timeLeft.sec = diff;
+
     return timeLeft;
   },
   render: function render() {
@@ -172,6 +178,7 @@ var CountDown = _react2['default'].createClass({
   },
   stop: function stop() {
     clearInterval(this.interval);
+    this.props.onEnd();
   },
   leadingZeros: function leadingZeros(num) {
     var length = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
