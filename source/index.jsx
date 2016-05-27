@@ -36,9 +36,6 @@ const CountDown = createClass({
       onEnd: () => {},
     };
   },
-  componentWillUnmount() {
-    this.stop();
-  }
   componentDidMount() {
     this.interval = setInterval(()=> {
       const date = this.getDateData(this.props.date);
@@ -49,6 +46,9 @@ const CountDown = createClass({
         this.props.onEnd();
       }
     }, 1000);
+  },
+  componentWillUnmount() {
+    this.stop();
   },
   getDateData(endDate) {
     let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date)) / 1000;

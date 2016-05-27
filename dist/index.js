@@ -52,8 +52,12 @@ var CountDown = (0, _react.createClass)({
         _this.setState(date);
       } else {
         _this.stop();
+        _this.props.onEnd();
       }
     }, 1000);
+  },
+  componentWillUnmount: function componentWillUnmount() {
+    this.stop();
   },
   getDateData: function getDateData(endDate) {
     var diff = (Date.parse(new Date(endDate)) - Date.parse(new Date())) / 1000;
@@ -178,7 +182,6 @@ var CountDown = (0, _react.createClass)({
   },
   stop: function stop() {
     clearInterval(this.interval);
-    this.props.onEnd();
   },
   leadingZeros: function leadingZeros(num) {
     var length = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
