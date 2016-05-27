@@ -36,6 +36,9 @@ const CountDown = createClass({
       onEnd: () => {},
     };
   },
+  componentWillUnmount() {
+    this.stop();
+  }
   componentDidMount() {
     this.interval = setInterval(()=> {
       const date = this.getDateData(this.props.date);
@@ -43,6 +46,7 @@ const CountDown = createClass({
         this.setState(date);
       } else {
         this.stop();
+        this.props.onEnd();
       }
     }, 1000);
   },
@@ -109,7 +113,6 @@ const CountDown = createClass({
   },
   stop() {
     clearInterval(this.interval);
-    this.props.onEnd();
   },
   leadingZeros(num, length = null) {
     let length_ = length;
