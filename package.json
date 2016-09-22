@@ -21,7 +21,7 @@
     "url": "https://github.com/leonidasesteban/react-simple-countdown/issues"
   },
   "homepage": "https://github.com/leonidasesteban/react-simple-countdown",
-  "dependencies": {
+  "peerDependencies": {
     "react": "^15.0.1"
   },
   "devDependencies": {
