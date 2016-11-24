@@ -1,11 +1,11 @@
 import React, {
-  createClass,
+  Component,
   PropTypes,
 } from 'react';
 
-const CountDown = createClass({
-  displayName: 'Simple countDown',
-  propTypes: {
+class CountDown extends Component {
+  static displayName = 'Simple countDown';
+  static propTypes = {
     date: PropTypes.string,
     className: PropTypes.string,
     days: PropTypes.objectOf(PropTypes.string),
@@ -13,29 +13,26 @@ const CountDown = createClass({
     mins: PropTypes.string,
     segs: PropTypes.string,
     onEnd: PropTypes.func,
-  },
-  getInitialState() {
-    return {
-      days: 0,
-      hours: 0,
-      min: 0,
-      sec: 0,
-    };
-  },
-  getDefaultProps() {
-    return {
-      date: new Date(),
-      className: 'CountDown',
-      days: {
-        plural: 'Days',
-        singular: 'Day',
-      },
-      hours: 'Hours',
-      mins: 'Min',
-      segs: 'Seg',
-      onEnd: () => {},
-    };
-  },
+  };
+  static defaultProps = {
+    date: new Date(),
+    className: 'CountDown',
+    days: {
+      plural: 'Days',
+      singular: 'Day',
+    },
+    hours: 'Hours',
+    mins: 'Min',
+    segs: 'Seg',
+    onEnd: () => {},
+
+  };
+  state = {
+    days: 0,
+    hours: 0,
+    min: 0,
+    sec: 0,
+  };
   componentDidMount() {
     this.interval = setInterval(()=> {
       const date = this.getDateData(this.props.date);
@@ -46,10 +43,15 @@ const CountDown = createClass({
         this.props.onEnd();
       }
     }, 1000);
-  },
+  }
+  componentWillMount() {
+    const date = this.getDateData(this.props.date);
+    this.setState(date);
+
+  }
   componentWillUnmount() {
     this.stop();
-  },
+  }
   getDateData(endDate) {
     let diff = (Date.parse(new Date(endDate)) - Date.parse(new Date)) / 1000;
 
@@ -83,9 +85,8 @@ const CountDown = createClass({
       diff -= timeLeft.min * 60;
     }
     timeLeft.sec = diff;
-
     return timeLeft;
-  },
+  }
   render() {
     const countDown = this.state;
     let days;
@@ -96,9 +97,11 @@ const CountDown = createClass({
     }
     return (
       <div className={this.props.className}>
-        <div className={`${this.props.className}-col is-day`}>
-          <p><strong>{this.leadingZeros(countDown.days)}</strong><span>{days}</span></p>
-        </div>
+        {(countDown.days > 0) &&
+          <div className={`${this.props.className}-col is-day`}>
+            <p><strong>{this.leadingZeros(countDown.days)}</strong><span>{days}</span></p>
+          </div>
+        }
         <div className={`${this.props.className}-col is-hour`}>
           <p><strong>{this.leadingZeros(countDown.hours)}</strong><span>{this.props.hours}</span></p>
         </div>
@@ -110,11 +113,12 @@ const CountDown = createClass({
         </div>
       </div>
     );
-  },
+  }
   stop() {
     clearInterval(this.interval);
-  },
+  }
   leadingZeros(num, length = null) {
+
     let length_ = length;
     let num_ = num;
     if (length_ === null) {
@@ -125,7 +129,7 @@ const CountDown = createClass({
       num_ = '0' + num_;
     }
     return num_;
-  },
-});
+  }
+};
 
 export default CountDown;
