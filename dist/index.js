@@ -59,7 +59,9 @@ var CountDown = function (_Component) {
     key: 'componentWillMount',
     value: function componentWillMount() {
       var date = this.getDateData(this.props.date);
-      this.setState(date);
+      if (date) {
+        this.setState(date);
+      }
     }
   }, {
     key: 'componentWillUnmount',
